@@ -23,5 +23,4 @@ import "virtual:svg-icons-register";
 
 // 全局组件使用
 app.use(globalComponent);
-
 app.mount("#app");
