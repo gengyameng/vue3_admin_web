@@ -5,13 +5,13 @@ export default class GlobalResponseError extends Error {
 
   constructor(data?: any, msg?: string) {
     super(msg);
-    this.data = data
+    this.data = data;
   }
 
   toString() {
-    if (typeof this.data === 'string' && this.data.trim() !== '') {
+    if (typeof this.data === "string" && this.data.trim() !== "") {
       return this.data;
     }
-    return this.message
+    return this.message;
   }
 }
