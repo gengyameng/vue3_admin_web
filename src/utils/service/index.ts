@@ -8,6 +8,7 @@ import {
 
 import GlobalResponseError from "@/utils/service/exception";
 import { ElMessage } from "element-plus";
+import { storage } from "@/utils/storage";
 
 // 1.利用axios对象的create方法，创建axios实例(其他配置：基础路径、超时时间、header等。)
 const instance = axios.create(axiosConfig);
@@ -17,6 +18,10 @@ const instance = axios.create(axiosConfig);
 instance.interceptors.request.use(
   (config) => {
     // config配置对象，headers属性请求头，经常给服务器端携带公共参数
+    // 设置请求头
+    if (storage.get("ATG-TOKEN")) {
+      config.headers.token = storage.get("ATG-TOKEN");
+    }
     return config;
   },
   (error) => {
@@ -28,8 +33,8 @@ instance.interceptors.request.use(
 // 响应拦截器
 instance.interceptors.response.use(
   (response) => {
-    console.log(response);
-    
+    // console.log(response);
+
     return response.data;
   },
   (error) => {

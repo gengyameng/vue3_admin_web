@@ -1,9 +1,9 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h1>我是数据大屏以及路由组件</h1>
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped lang="scss"></style>
+<style scoped></style>

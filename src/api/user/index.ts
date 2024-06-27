@@ -1,10 +1,6 @@
 // 用户模块接口统一管理
 import request from "@/utils/service/index";
-import {
-  loginForm,
-  loginResponse,
-  userInfoResponse,
-} from "@/api/user/type";
+import { loginForm, loginResponse, userInfoResponse } from "@/api/user/type";
 
 // 项目相关的请求地址
 enum API {

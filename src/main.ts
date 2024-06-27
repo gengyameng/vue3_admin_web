@@ -9,7 +9,16 @@ import "@/styles/index.scss";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 import globalComponent from "@/components/index";
 
-// console.log(import.meta.env);
+// svg插件需要配置代码
+import "virtual:svg-icons-register";
+
+// 引入路由
+import router from "@/router/index";
+
+// 引入 store
+import store from "@/store/index";
+
+// console.log(import.meta.env)
 
 const app = createApp(App);
 
@@ -17,10 +26,10 @@ const app = createApp(App);
 app.use(ElementPlus, {
   locale: zhCn,
 });
-
-// svg插件需要配置代码
-import "virtual:svg-icons-register";
-
 // 全局组件使用
 app.use(globalComponent);
+
+// 注册路由
+app.use(router).use(store);
+
 app.mount("#app");
