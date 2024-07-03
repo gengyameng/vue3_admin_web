@@ -123,7 +123,7 @@ const loginHandler = async () => {
   if (code === 200) {
     isLoading.value = false;
     // 登录成功
-    const token = data.token as string;
+    const token = data;
     // 存储token
     userStore.setToken(token);
     const redirect: any = route.query.redirect;
@@ -135,7 +135,7 @@ const loginHandler = async () => {
   } else {
     isLoading.value = false;
     // 登录失败
-    const message = data.message;
+    const message = data;
 
     errorNotice("登录失败", message);
   }

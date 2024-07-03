@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Home插件</h3>
+    <h2>SpuForm</h2>
   </div>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h3>Home插件</h3>
+    <h2>SkuForm</h2>
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

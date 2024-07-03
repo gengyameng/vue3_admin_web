@@ -11,7 +11,7 @@ const errorNotice = (title?: string, message?: string, duration = 2000) => {
 };
 
 // 成功提示
-const successNotice = (title: string, message?: string, duration = 2000) => {
+const successNotice = (title?: string, message?: string, duration = 2000) => {
   ElNotification.success({
     title,
     message,

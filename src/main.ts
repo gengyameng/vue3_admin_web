@@ -32,4 +32,7 @@ app.use(globalComponent);
 // 注册路由
 app.use(router).use(store);
 
+// 引入路由鉴权文件
+import "@/permission";
+
 app.mount("#app");
