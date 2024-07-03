@@ -1,41 +1,34 @@
 // 用户模块接口类型管理
 
-// 用户登录请求参数
-export interface loginForm {
-  username: string;
-  password: string;
+// 用户登录请求参数的ts类型
+export interface loginFormData {
+  username: string
+  password: string
 }
 
-export interface loginResponseDataType {
-  token?: string;
-  message?: string;
-}
-
-// 用户登录响应
-export interface loginResponse {
+// 定义全部接口返回数据都拥有的ts类型
+export interface ResponseData {
   code: number;
-  data: loginResponseDataType;
+  message: string;
+  ok: boolean
+}
+
+// 定义登录接口返回数据类型
+export interface loginResponseData extends ResponseData {
+  data: string
 }
 
 // 用户信息类型
 export interface userInfoType {
-  userId: number;
   avatar: string;
-  username: string;
-  password: string;
-  desc: string;
   roles: string[];
   buttons: string[];
   routes: string[];
-  token: string;
+  name: string;
 }
 
-interface userType {
-  checkUser: userInfoType;
+// 定义获取用户信息返回数据类型
+export interface userInfoResponseData extends ResponseData {
+  data: userInfoType
 }
 
-// 用户信息响应类型
-export interface userInfoResponse {
-  code: number;
-  data: userType;
-}
