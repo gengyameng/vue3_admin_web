@@ -15,15 +15,11 @@ interface userState {
 
 // 设置默认user
 const defaultUser: userState["user"] = {
-  userId: 0,
   avatar: "",
-  username: "",
-  password: "",
-  desc: "",
+  name: "",
   roles: [],
   buttons: [],
   routes: [],
-  token: "",
 };
 
 export const useUserStore = defineStore<
