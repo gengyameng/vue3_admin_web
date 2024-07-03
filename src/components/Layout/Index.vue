@@ -78,7 +78,7 @@ export default {
     background: $base-menu-background;
     color: #fff;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.4s;
     .scrollbar {
       width: 100%;
       height: calc(100vh - $base-menu-logo-height);
@@ -95,11 +95,12 @@ export default {
   // 顶部导航
   .el-header {
     height: $base-tabbar-height;
+    border-bottom: 1px solid #999;
   }
 
   // 内容区域
   .el-main {
-    background-color: green;
+    // background-color: green;
     height: calc(100vh - $base-tabbar-height);
   }
 }

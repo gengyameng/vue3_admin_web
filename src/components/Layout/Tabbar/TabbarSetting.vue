@@ -17,7 +17,7 @@
   <!-- 下拉框 -->
   <el-dropdown>
     <span class="el-dropdown-link">
-      {{ userStore.user.username }}
+      {{ userStore.user.name }}
       <el-icon class="el-icon--right">
         <arrow-down />
       </el-icon>
@@ -34,6 +34,7 @@
 import { useRouter, useRoute } from "vue-router";
 import { useLayoutSettingStore } from "@/store/modules/settings";
 import { useUserStore } from "@/store/modules/user";
+import { reqLogout } from "@/api/user";
 
 const router = useRouter();
 
@@ -62,10 +63,11 @@ const fullScreen = () => {
 };
 
 // 退出登录
-const logout = () => {
+const logout = async () => {
   // 发送退出登录请求
   // 仓库相关数据清空
   // 跳转到登录页面
+  await reqLogout();
   userStore.setToken();
   userStore.setUser();
   router.push({
