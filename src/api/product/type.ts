@@ -56,7 +56,7 @@ export interface TrademarkResponseData extends ResponseData {
 
 // 分类品牌接口返回类型
 export interface TrademarkByCategoryResponseData extends ResponseData {
-  data: Records
+  data: Records;
 }
 
 // 获取一级分类返回响应类型
@@ -95,14 +95,13 @@ export interface AttrInfo {
   categoryId: number | null; // 三级分类ID
   categoryLevel: number | null;
   attrValueList: AttrValueList;
-  attrIdAndValueId?: string;  // 用户select数据绑定
+  attrIdAndValueId?: string; // 用户select数据绑定
 }
 
 // 分类列表响应类型
 export interface AttrResponse extends ResponseData {
   data: AttrInfo[];
 }
-
 
 // SPU 相关类型
 
@@ -111,14 +110,12 @@ export interface SPUValue {
   id: number;
   spuName: string; // 名称
   description: string; // SPU 描述
-  category3Id: number;  // 三级分类ID
-  tmId: number;  // 品牌ID
+  category3Id: number; // 三级分类ID
+  tmId: number; // 品牌ID
 }
 
 // SpuRecords
-type SpuRecords = SPUValue[]
-
-
+type SpuRecords = SPUValue[];
 
 // 销售属性值类型
 export interface SpuSaleAttrValue {
@@ -127,11 +124,11 @@ export interface SpuSaleAttrValue {
   baseSaleAttrId: number;
   saleAttrValueName: string;
   saleAttrName?: string;
-  isChecked?: null
+  isChecked?: null;
 }
 
 // 销售属性值列表
-type SpuSaleAttrValueList = SpuSaleAttrValue[]
+type SpuSaleAttrValueList = SpuSaleAttrValue[];
 
 // spu销售属性类型
 export interface SpuSaleAttr {
@@ -141,7 +138,7 @@ export interface SpuSaleAttr {
   saleAttrName: string;
   spuSaleAttrValueList: SpuSaleAttrValueList;
   flag?: boolean;
-  saleAttrValue?: string;  // 用于添加销售属性值时input数据绑定
+  saleAttrValue?: string; // 用于添加销售属性值时input数据绑定
 }
 
 // SPU Image类型
@@ -159,7 +156,7 @@ export interface SpuPoster {
   id: number;
   spuId: number;
   imgName: string;
-  imgUrl: string
+  imgUrl: string;
 }
 
 // SpuInfo 类型
@@ -187,28 +184,28 @@ export interface SpuValueResponseData extends ResponseData {
     total: number;
     size: number;
     current: number;
-    pages: number
-  }
+    pages: number;
+  };
 }
 
 // SpuInfoResponse 类型
 export interface SpuInfoResponseData extends ResponseData {
-  data: SpuInfo
+  data: SpuInfo;
 }
 
 // 销售属性列表响应类型
 export interface SaleAttrResponseData extends ResponseData {
-  data: SaleAttr[]
+  data: SaleAttr[];
 }
 
 // spu销售属性列响应类型
 export interface SpuSaleAttrResponseData extends ResponseData {
-  data: SpuSaleAttr[]
+  data: SpuSaleAttr[];
 }
 
 // spu图片列表响应类型
 export interface SpuImgListResponseData extends ResponseData {
-  data: SpuImage[]
+  data: SpuImage[];
 }
 
 // SKU 相关类型
@@ -216,7 +213,7 @@ export interface SpuImgListResponseData extends ResponseData {
 export interface SkuAttrValue {
   attrId: number; // 属性ID1
   attrName?: string; // 属性名称
-  id?: number;  // 属性值 ID
+  id?: number; // 属性值 ID
   skuId?: number; // skuId
   valueId: number | null; // 属性值ID 1
   valueName?: number | null; // 属性值name
@@ -240,7 +237,7 @@ export interface SkuImage {
   imgUrl: string;
   isDefault: string;
   skuId?: number;
-  spuImgId: number
+  spuImgId: number;
 }
 
 // sku info 类型
@@ -250,15 +247,38 @@ export interface SkuInfo {
   skuName: string;
   spuId: number | null;
   tmId: number | null;
-  // isSale: number | null;
+  isSale?: number;
   price: number | null;
   weight: string;
   skuAttrValueList: SkuAttrValue[];
   skuDefaultImg: string;
   skuDesc: string;
   skuSaleAttrValueList: SkuSaleAttrValue[];
+  skuImageList?:  SkuImage[]
 }
 
+// sku列表 by spu
+export interface SkuListResponseData extends ResponseData {
+  data: SkuInfo[];
+}
+
+// 所有sku列表
+export interface AllSkuListResponseData extends ResponseData {
+  data: {
+    records: SkuInfo[],
+    total: number,
+    size: number,
+    current: number,
+    pages: number,
+    optimizeCountSql: boolean,
+    hitCount: boolean,
+    countId: number,
+    maxLimit: number,
+    searchCount: number
+  }
+}
+
+// sku info
 export interface SkuInfoResponseData extends ResponseData {
-  data: SkuInfo[]
+  data: SkuInfo;
 }
