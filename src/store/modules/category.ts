@@ -10,7 +10,6 @@ import type {
   BaseCategory,
   BaseCategory2,
   BaseCategory3,
-  BaseCategoryResponse,
 } from "@/api/product/type";
 
 interface categoryState {

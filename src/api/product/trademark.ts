@@ -2,7 +2,7 @@
 
 import request from "@/utils/service/index";
 
-import { TrademarkResponseData, Trademark } from "@/api/product/type";
+import type { TrademarkResponseData, Trademark, TrademarkByCategoryResponseData } from "@/api/product/type";
 
 // 项目相关接口地址
 enum API {
@@ -14,6 +14,10 @@ enum API {
   UPDATE_TRADEMARK_URL = "/admin/product/baseTrademark/update",
   // 删除
   DELETE_TRADEMARK_URL = "/admin/product/baseTrademark/remove/",
+  // 分类品牌列表
+  FIND_TRADEMARK_URL = '/admin/product/baseCategoryTrademark/findTrademarkList/',
+  // 全部品牌列表
+  ALL_TRADEMARK_URL = '/admin/product/baseTrademark/getTrademarkList'
 }
 
 // 获取已有品牌接口方法
@@ -39,3 +43,13 @@ export const reqAddOrUpdateTrademark = (params: Trademark) => {
 export const reqDeleteTrademark = (id: number) => {
   return request.delete<any, any>(API.DELETE_TRADEMARK_URL + id);
 };
+
+// 获取分类品牌列表
+export const reqFindTrademarkList = (category3Id: number) => {
+  return request.get<any, TrademarkByCategoryResponseData>(API.FIND_TRADEMARK_URL + category3Id)
+}
+
+// 获取全部品牌列表
+export const reqAllTrademarkList = () => {
+  return request.get<any, TrademarkByCategoryResponseData>(API.ALL_TRADEMARK_URL)
+}

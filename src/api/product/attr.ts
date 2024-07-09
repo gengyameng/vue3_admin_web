@@ -1,6 +1,6 @@
 // 属性管理接口
 import request from "@/utils/service/index";
-import {
+import type {
   BaseCategoryResponse,
   BaseCategory2Response,
   BaseCategory3Response,

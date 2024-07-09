@@ -260,7 +260,6 @@ const toLookValue = (row: AttrValue, $index: number) => {
     // 提示信息
     ElMessage.error("属性值不能重复");
   }
-  console.log(attrParams.attrValueList);
 
   // 修改row.flag
   row.flag = false;

@@ -116,7 +116,7 @@ import {
   reqAddOrUpdateTrademark,
   reqDeleteTrademark,
 } from "@/api/product/trademark";
-import type { Records, Trademark } from "@/api/product/type";
+import type { Records } from "@/api/product/type";
 import { PAGE_SIZE } from "@/settings";
 
 // 当前页码
