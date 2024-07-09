@@ -254,7 +254,7 @@ export interface SkuInfo {
   skuDefaultImg: string;
   skuDesc: string;
   skuSaleAttrValueList: SkuSaleAttrValue[];
-  skuImageList?:  SkuImage[]
+  skuImageList?: SkuImage[];
 }
 
 // sku列表 by spu
@@ -265,17 +265,17 @@ export interface SkuListResponseData extends ResponseData {
 // 所有sku列表
 export interface AllSkuListResponseData extends ResponseData {
   data: {
-    records: SkuInfo[],
-    total: number,
-    size: number,
-    current: number,
-    pages: number,
-    optimizeCountSql: boolean,
-    hitCount: boolean,
-    countId: number,
-    maxLimit: number,
-    searchCount: number
-  }
+    records: SkuInfo[];
+    total: number;
+    size: number;
+    current: number;
+    pages: number;
+    optimizeCountSql: boolean;
+    hitCount: boolean;
+    countId: number;
+    maxLimit: number;
+    searchCount: number;
+  };
 }
 
 // sku info
