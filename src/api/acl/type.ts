@@ -34,7 +34,7 @@ export type SaveUserFormData = {
   username: string; // 用户名称
   name: string; // 用户昵称
   password: string;
-}
+};
 
 // role 数据
 export interface UserRoleData {
@@ -42,7 +42,7 @@ export interface UserRoleData {
   createTime: string;
   updateTime: string;
   roleName: string;
-  remark: null
+  remark: null;
 }
 
 // 分配角色参数
@@ -54,17 +54,17 @@ export interface AssignRoleFormData {
 // 用户列表响应类型
 export interface UserListResponseData extends ResponseData {
   data: {
-    records: UserData[],
-    total: number,
-    size: number,
-    current: number,
-    pages: number
-  }
+    records: UserData[];
+    total: number;
+    size: number;
+    current: number;
+    pages: number;
+  };
 }
 
 // 用户信息响应类型
 export interface UserInfoResponseData extends ResponseData {
-  data: UserInfo
+  data: UserInfo;
 }
 
 // 用户角色数据响应类型
@@ -72,5 +72,5 @@ export interface UserAssignInfoResponseData extends ResponseData {
   data: {
     assignRoles: UserRoleData[];
     allRolesList: UserRoleData[];
-  }
+  };
 }
