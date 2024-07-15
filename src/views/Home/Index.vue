@@ -2,10 +2,10 @@
   <!-- 卡片：头像+名称 -->
   <el-card>
     <div class="header-box">
-      <img :src="userStore.user.avatar" alt="" class="avatar">
+      <img :src="userStore.user.avatar" alt="" class="avatar" />
       <div>
         <div class="title">{{ getTimeStr() }}好{{ userStore.user.name }}</div>
-        
+
         <p class="app-title">{{ app_title }}</p>
       </div>
     </div>
@@ -17,16 +17,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
-import SvgIcon from '@/components/SvgIcon/index.vue'
+import SvgIcon from "@/components/SvgIcon/index.vue";
 
-import { useUserStore } from '@/store/modules/user'
-import { getTimeStr } from '@/utils/tools'
+import { useUserStore } from "@/store/modules/user";
+import { getTimeStr } from "@/utils/tools";
 
-const app_title = import.meta.env.VITE_APP_TITLE
+const app_title = import.meta.env.VITE_APP_TITLE;
 
-const userStore = useUserStore()
+const userStore = useUserStore();
 </script>
 
 <style scoped lang="scss">

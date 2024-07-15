@@ -20,12 +20,12 @@
       <!-- Popover内嵌HTML文本 -->
       <el-form>
         <el-form-item label="主题颜色">
-          <el-color-picker 
+          <el-color-picker
             v-model="color"
-            show-alpha 
+            show-alpha
             :predefine="predefineColors"
             @change="setColor"
-           />
+          />
         </el-form-item>
         <el-form-item label="暗黑模式">
           <el-switch
@@ -37,7 +37,7 @@
           />
         </el-form-item>
       </el-form>
-     
+
       <!-- 触发Popover显示的HTML元素 -->
       <template #reference>
         <el-button icon="Setting" circle />
@@ -63,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useLayoutSettingStore } from "@/store/modules/settings";
 import { useUserStore } from "@/store/modules/user";
@@ -78,26 +78,26 @@ const userStore = useUserStore();
 const layoutSettingStore = useLayoutSettingStore();
 
 // 主题颜色
-const color = ref('#1e90ff')
+const color = ref("#1e90ff");
 const predefineColors = ref([
-  '#ff4500',
-  '#ff8c00',
-  '#ffd700',
-  '#90ee90',
-  '#00ced1',
-  '#1e90ff',
-  '#c71585',
-  'rgba(255, 69, 0, 0.68)',
-  'rgb(255, 120, 0)',
-  'hsv(51, 100, 98)',
-  'hsva(120, 40, 94, 0.5)',
-  'hsl(181, 100%, 37%)',
-  'hsla(209, 100%, 56%, 0.73)',
-  '#c7158577',
-])
+  "#ff4500",
+  "#ff8c00",
+  "#ffd700",
+  "#90ee90",
+  "#00ced1",
+  "#1e90ff",
+  "#c71585",
+  "rgba(255, 69, 0, 0.68)",
+  "rgb(255, 120, 0)",
+  "hsv(51, 100, 98)",
+  "hsva(120, 40, 94, 0.5)",
+  "hsl(181, 100%, 37%)",
+  "hsla(209, 100%, 56%, 0.73)",
+  "#c7158577",
+]);
 
 // 收集开关数据
-const dark = ref<boolean>(false)
+const dark = ref<boolean>(false);
 
 // 更新刷新按钮
 const updateRefresh = () => {
@@ -136,20 +136,20 @@ const logout = async () => {
 // switch开关的change事件，进行暗黑模式切换
 const changeDark = () => {
   // 获取根节点
-  let html = document.documentElement
+  let html = document.documentElement;
   // 判断HTML标签是否有类名 dark
-  dark.value?html.className = 'dark' : html.className = ''
-}
+  dark.value ? (html.className = "dark") : (html.className = "");
+};
 
 // 设置主题颜色
 const setColor = () => {
   console.log(color.value);
-  
-  // 通过js修改根节点的样式对象属性与属性值
-  const html = document.documentElement
 
-  html.style.setProperty('--el-color-primary', color.value)
-}
+  // 通过js修改根节点的样式对象属性与属性值
+  const html = document.documentElement;
+
+  html.style.setProperty("--el-color-primary", color.value);
+};
 </script>
 
 <style scoped lang="scss">

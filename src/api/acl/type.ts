@@ -102,9 +102,8 @@ export interface SaveRoleFormData {
 
 // 批量删除参数
 export interface BatchRemoveRoleData {
-  idList: number[]
+  idList: number[];
 }
-
 
 // 角色列表响应数据类型
 export interface RoleListResponseData extends ResponseData {
@@ -113,8 +112,8 @@ export interface RoleListResponseData extends ResponseData {
     total: number;
     size: number;
     current: number;
-    pages: number
-  }
+    pages: number;
+  };
 }
 
 // 角色详情响应数据类型
@@ -128,15 +127,15 @@ export interface MenuPermissionData {
   id?: number;
   createTime?: string;
   updateTime?: string;
-  pid: number;  // 上一级ID
+  pid: number; // 上一级ID
   name: string; // 当前权限名称
   code: string | null;
   toCode: string | null;
   type: number;
   status: string | null;
-  level: number;  // 等级
+  level: number; // 等级
   select: boolean;
-  children: MenuPermissionData[]
+  children: MenuPermissionData[];
 }
 
 // 设置角色菜单表单数据类型
@@ -151,10 +150,10 @@ export interface setMenuForm {
   name: string;
   code: string;
   level: number;
-  pid: number
+  pid: number;
 }
 
 // 角色的权限菜单响应数据类型
 export interface MenuPermissionResponseData extends ResponseData {
-  data: MenuPermissionData[]
+  data: MenuPermissionData[];
 }
