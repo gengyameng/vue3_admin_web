@@ -370,11 +370,12 @@ const addUser = () => {
   // 抽屉打开
   userDrawer.value = true;
   // 表单数据清空
-  // Object.assign(userForm, {
-  //   username: '',
-  //   name: '',
-  //   password: ''
-  // })
+  Object.assign(userForm, {
+    id: 0,
+    username: '',
+    name: '',
+    password: ''
+  })
   // 表单验证错误提示清空 重置该表单项，将其值重置为初始值，并移除校验结果
   nextTick(() => {
     userFormRef.value.resetFields();

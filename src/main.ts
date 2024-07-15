@@ -9,6 +9,9 @@ import "@/styles/index.scss";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 import globalComponent from "@/components/index";
 
+// 暗黑模式需要的样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
 // svg插件需要配置代码
 import "virtual:svg-icons-register";
 

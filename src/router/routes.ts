@@ -81,10 +81,10 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: "/acl/permission",
-        component: () => import("@/views/Acl/Permission.vue"),
+        component: () => import("@/views/Acl/Menu.vue"),
         name: "Permission",
         meta: {
-          title: "权限管理",
+          title: "菜单管理",
           hidden: false,
           icon: "Monitor",
         },
