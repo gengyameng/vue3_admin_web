@@ -10,6 +10,12 @@ import "nprogress/nprogress.css";
 
 import { reqUserInfo } from "@/api/user/index";
 
+import { constantRoutes, asyncRoutes, anyRoute } from "@/router/routes";
+
+// 引入深拷贝方法
+//@ts-expect-error
+import cloneDeep from 'lodash/cloneDeep'
+
 nprogress.configure({ showSpinner: false });
 
 //获取用户相关的小仓库内部token数据,去判断用户是否登录成功
@@ -46,9 +52,22 @@ router.beforeEach(async (to: any, from: any, next: any) => {
         if (code === 200) {
           // 成功获取
           const user = data;
+          
           // 保存User
           userStore.setUser(user);
-          next();
+          // 设置用户可访问路由（异步路由）
+          const userAsyncRoutes = filterAsyncRoute(cloneDeep(asyncRoutes), data.routes)
+          // 设置userStore的menuRoutes 用于展示路由
+          userStore.menuRoutes = [...constantRoutes, ...userAsyncRoutes, anyRoute]
+          // 异步路由、任意路由还未在路由器中注册
+          ;[...userAsyncRoutes, anyRoute].forEach((route: any) => {
+            router.addRoute(route)
+          })
+          
+          // 刷新的时候是异步路由，有可能获取到用户信息，异步路由还没有加载完毕，出现
+          // 空白效果
+          
+          next({...to});
         } else {
           // 获取用户信息失败
           // token失效
@@ -80,3 +99,15 @@ router.afterEach((to: any, from: any) => {
 
 //用户未登录:可以访问login,其余六个路由不能访问(指向login)
 //用户登录成功:不可以访问login[指向首页],其余的路由可以访问
+
+// 用于过滤当前用户需要展示的异步路由
+function filterAsyncRoute(asyncRoutes: any, routes: any) {
+  return asyncRoutes.filter((item: any) => {
+    if (routes.includes(item.name)) {
+      if (item.children && item.children.length > 0) {
+        item.children = filterAsyncRoute(item.children, routes)
+      }
+      return true
+    }
+  })
+}

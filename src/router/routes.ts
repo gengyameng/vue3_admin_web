@@ -3,10 +3,11 @@ import { RouteRecordRaw } from "vue-router";
 import Layout from "@/components/Layout/Index.vue";
 
 // 用户不同的身份角色访问路由不同，将路由划分为公共路由、异步路由、任意路由
-// 公共路由：任何身份都可以访问
-// 异步路由：根据角色是否有访问权限确定能否访问
+// 公共路由(常量路由)：任何身份都可以访问 登录(/login)、首页(/home)、数据大屏(/screen)、404(/404)
+// 异步路由：根据角色是否有访问权限确定能否访问 权限管理(/acl)及其子路由 商品管理(/product)及其子路由
 
-const routes: Array<RouteRecordRaw> = [
+// 对外暴露配置路由（常量路由):全部用户都可以访问到的路由
+export const constantRoutes: Array<RouteRecordRaw> = [
   {
     // 登录
     path: "/login",
@@ -52,6 +53,21 @@ const routes: Array<RouteRecordRaw> = [
       icon: "DataLine",
     },
   },
+  {
+    // 404
+    path: "/404",
+    component: () => import("@/views/Exception/404.vue"),
+    name: "404",
+    meta: {
+      title: "404", // 菜单标题
+      hidden: true,
+      icon: "QuestionFilled",
+    },
+  }
+];
+
+// 异步路由
+export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: "/acl",
     component: Layout,
@@ -144,29 +160,20 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  {
-    // 404
-    path: "/404",
-    component: () => import("@/views/Exception/404.vue"),
-    name: "404",
-    meta: {
-      title: "404", // 菜单标题
-      hidden: true,
-      icon: "QuestionFilled",
-    },
+]
+
+// 任意路由
+export const anyRoute: RouteRecordRaw = {
+  // 其他无法匹配的路由
+  path: "/:pathMatch(.*)*",
+  redirect: "/404",
+  name: "any",
+  meta: {
+    title: "其他", // 菜单标题
+    hidden: true,
+    icon: "MoreFilled",
   },
-  {
-    // 其他无法匹配的路由
-    path: "/:pathMatch(.*)*",
-    redirect: "/404",
-    name: "any",
-    meta: {
-      title: "其他", // 菜单标题
-      hidden: true,
-      icon: "MoreFilled",
-    },
-  },
-];
+}
 
 // 路由规则导出
-export default routes;
+// export default routes;

@@ -3,6 +3,7 @@
   <el-card>
     <!-- 卡片顶部添加品牌按钮 -->
     <el-button type="primary" icon="Plus" @click="addTrademarkHandler"
+      v-has="`btn.Trademark.add`"
       >添加品牌</el-button
     >
     <!-- 表格组件：展示已有得平台数据 -->
@@ -106,8 +107,6 @@
 import { ref, onMounted, reactive, nextTick } from "vue";
 import {
   type UploadProps,
-  type FormInstance,
-  type FormRules,
   ElMessage,
 } from "element-plus";
 

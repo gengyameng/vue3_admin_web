@@ -38,4 +38,8 @@ app.use(router).use(store);
 // 引入路由鉴权文件
 import "@/permission";
 
+// 引入自定义指令
+import { isHasButton } from '@/directive/has'
+isHasButton(app)
+
 app.mount("#app");
