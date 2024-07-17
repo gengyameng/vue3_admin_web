@@ -73,7 +73,7 @@
           align="center"
         ></el-table-column>
         <el-table-column label="图片">
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <img :src="row.imgUrl" alt="" style="width: 100px; height: 100px" />
           </template>
         </el-table-column>

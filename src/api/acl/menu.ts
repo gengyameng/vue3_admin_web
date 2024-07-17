@@ -3,7 +3,6 @@ import request from "@/utils/service/index";
 import type {
   MenuPermissionResponseData,
   SetRolePermissionForm,
-  MenuPermissionData,
   setMenuForm,
 } from "@/api/acl/type";
 

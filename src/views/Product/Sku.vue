@@ -239,7 +239,7 @@ const viewSkuHandler = async (skuId: number) => {
   // 抽屉打开
   drawer.value = true;
   // 获取SKU详情
-  const { code, data, message } = await reqFindSku(skuId);
+  const { code, data } = await reqFindSku(skuId);
   if (code === 200) {
     skuInfo.value = data;
   }
@@ -252,7 +252,7 @@ const updateSku = () => {
 
 // 获取全部SKu列表
 const getSkuList = async () => {
-  const { code, message, data, ok } = await reqAllSkuList(
+  const { code, data } = await reqAllSkuList(
     currentPage.value,
     pageSize.value,
   );

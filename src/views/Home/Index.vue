@@ -17,7 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 
 import SvgIcon from "@/components/SvgIcon/index.vue";
 

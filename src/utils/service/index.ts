@@ -42,7 +42,7 @@ instance.interceptors.response.use(
     const response = error.response;
     if (response) {
       const { status, statusText, data } = response;
-      const { errMsg, errCode } = data ?? {}; // ?? 非空运算符
+      const { errMsg } = data ?? {}; // ?? 非空运算符
       let message =
         errMsg || HTTPStatusTitle[status] || statusText || defaultError; // 错误提示
       // message是否需要重写取决于服务端提供的提示信息是否可以使用

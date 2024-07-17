@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 import { storage } from "@/utils/storage";
 // 引入路由 - 动态生成菜单用
-import { constantRoutes, asyncRoutes, anyRoute } from "@/router/routes";
+import { constantRoutes } from "@/router/routes";
 import { RouteRecordRaw } from "vue-router";
 import { userInfoType } from "@/api/user/type";
 

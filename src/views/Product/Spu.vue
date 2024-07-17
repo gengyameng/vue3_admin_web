@@ -94,7 +94,7 @@
         <el-table-column label="sku价格" prop="price"></el-table-column>
         <el-table-column label="sku重量" prop="weight"></el-table-column>
         <el-table-column label="sku图片">
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <img :src="row.skuDefaultImg" style="width: 100px; height: 100px" />
           </template>
         </el-table-column>

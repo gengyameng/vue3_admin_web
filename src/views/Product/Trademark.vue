@@ -145,7 +145,7 @@ const trademarkFormRef = ref();
 
 // 获取已有品牌数据 接口封装
 const getHasTrademark = async () => {
-  const { code, message, data, ok } = await reqHasTrademark(
+  const { code, data } = await reqHasTrademark(
     currentPage.value,
     pageSize.value,
   );
@@ -234,7 +234,7 @@ const confirmHandler = async () => {
   } else {
     dialogVisible.value = false;
     // 提示失败
-    const message = trademarkParams.id ? "修改品牌失败" : "添加品牌失败";
+    // const message = trademarkParams.id ? "修改品牌失败" : "添加品牌失败";
     ElMessage.error(res.data);
   }
 };

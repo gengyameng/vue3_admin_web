@@ -106,7 +106,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" width="120">
-          <template #="{ row, $index }">
+          <template #="{ $index }">
             <el-button
               type="danger"
               size="small"

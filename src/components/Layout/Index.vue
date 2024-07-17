@@ -33,7 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 // 引入 route
 import { useRoute } from "vue-router";
 // 引入logo组件

@@ -10,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from "vue-router";
-
 import Breadcrumb from "./Breadcrumb.vue";
 
 import TabbarSetting from "./TabbarSetting.vue";

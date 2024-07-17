@@ -1,6 +1,6 @@
 <template>
   <!-- 使用template标签是因为不会渲染到浏览器页面，但保证页面结构 -->
-  <template v-for="(item, index) in menuList" :key="item.path">
+  <template v-for="item in menuList" :key="item.path">
     <!-- 无子路由 -->
     <template v-if="!item.children">
       <el-menu-item

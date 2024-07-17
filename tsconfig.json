@@ -17,9 +17,9 @@
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false, // 检查未使用的函数参数：不检查
     "noFallthroughCasesInSwitch": true,
-    "types": ["element-plus/global", "vite-plugin-svg-icons/client"],
+    // "types": ["element-plus/global", "vite-plugin-svg-icons/client"],
     "baseUrl": "./", // 解析非相对模块的基地址，默认是当前目录
     "paths": {
       //路径映射，相对于baseUrl
