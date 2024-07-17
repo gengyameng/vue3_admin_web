@@ -8,11 +8,11 @@
     <div class="sex">
       <div class="man">
         <span>男士</span>
-        <img src="../images/man.png" alt="">
+        <img src="../images/man.png" alt="" />
       </div>
       <div class="women">
         <span>女士</span>
-        <img src="../images/woman.png" alt="">
+        <img src="../images/woman.png" alt="" />
       </div>
     </div>
     <div class="rate">
@@ -24,13 +24,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import * as echarts from 'echarts'
+import { ref, onMounted } from "vue";
+import * as echarts from "echarts";
 
-const charts = ref()
+const charts = ref();
 
 onMounted(() => {
-  const myChart = echarts.init(charts.value)
+  const myChart = echarts.init(charts.value);
 
   myChart.setOption({
     // title: {
@@ -42,43 +42,42 @@ onMounted(() => {
     xAxis: {
       show: false,
       min: 0,
-      max: 100
+      max: 100,
     },
     yAxis: {
       show: false,
-      type: 'category'
+      type: "category",
     },
     series: [
       {
-        type: 'bar',
-        data:[60],
+        type: "bar",
+        data: [60],
         barWidth: 20,
         z: 100,
         itemStyle: {
-          color: 'skyblue',
-          borderRadius: 20
-        }
+          color: "skyblue",
+          borderRadius: 20,
+        },
       },
       {
-        type: 'bar',
-        data:[100],
+        type: "bar",
+        data: [100],
         barWidth: 20,
-        barGap: '-100%',
+        barGap: "-100%",
         itemStyle: {
-          color: 'hotpink',
-          borderRadius: 20
-        }
-      }
+          color: "hotpink",
+          borderRadius: 20,
+        },
+      },
     ],
     grid: {
       left: 0,
       top: 0,
       right: 0,
-      bottom: 0
-    }
-  })
-})
-
+      bottom: 0,
+    },
+  });
+});
 </script>
 
 <style scoped lang="scss">
@@ -91,7 +90,7 @@ onMounted(() => {
   color: #fff;
   .title {
     font-size: 20px;
-    
+
     .bg {
       width: 68px;
       height: 7px;
@@ -138,6 +137,5 @@ onMounted(() => {
     height: 100px;
     padding: 0 80px;
   }
- 
 }
 </style>

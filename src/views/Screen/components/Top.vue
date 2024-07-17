@@ -1,6 +1,6 @@
 <template>
   <!-- 数据大屏顶部Top -->
-  <div class=top>
+  <div class="top">
     <!-- 三部分 -->
     <div class="left">
       <!-- 首页按钮 -->
@@ -17,36 +17,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { useRouter } from 'vue-router'
-import moment from 'moment'
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useRouter } from "vue-router";
+import moment from "moment";
 
 // 路由器对象
-const router = useRouter()
+const router = useRouter();
 
 // 存储当前时间
-let time = ref(moment().format('YYYY年MM月DD日 hh:mm:ss'))
-let timer = ref(0)  // 用于清除定时器
-
+let time = ref(moment().format("YYYY年MM月DD日 hh:mm:ss"));
+let timer = ref(0); // 用于清除定时器
 
 // 返回首页按钮
 const goHome = () => {
-  router.push('/home')
-}
+  router.push("/home");
+};
 
 // 组件挂载完毕更新当前时间
 onMounted(() => {
   timer.value = setInterval(() => {
-    time.value = moment().format('YYYY年MM月DD日 hh:mm:ss')
-  }, 1000)
-}) 
+    time.value = moment().format("YYYY年MM月DD日 hh:mm:ss");
+  }, 1000);
+});
 
 // 组件销毁前清除定时器
 onBeforeUnmount(() => {
-  clearInterval(timer.value)
-})
-
-
+  clearInterval(timer.value);
+});
 </script>
 
 <style scoped lang="scss">
@@ -61,7 +58,7 @@ onBeforeUnmount(() => {
     justify-content: flex-end;
     background: url(../images/dataScreen-header-left-bg.png) no-repeat;
     background-size: cover;
-    
+
     .lbtn {
       width: 150px;
       height: 40px;
@@ -91,7 +88,6 @@ onBeforeUnmount(() => {
       background-size: cover;
       text-align: center;
       line-height: 40px;
-      
     }
     .time {
       // font-size: 20px;
@@ -111,7 +107,6 @@ onBeforeUnmount(() => {
       color: #29fcff;
       font-size: 30px;
     }
-   
   }
 }
 </style>

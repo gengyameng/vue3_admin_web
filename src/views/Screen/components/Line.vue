@@ -2,88 +2,93 @@
   <div class="box">
     <div class="title">
       <p>未来30天游客量趋势图</p>
-      <img src="../images/dataScreen-title.png" alt="">
+      <img src="../images/dataScreen-title.png" alt="" />
     </div>
     <div class="charts" ref="line"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import * as echarts from 'echarts'
+import { ref, onMounted } from "vue";
+import * as echarts from "echarts";
 
-const line = ref()
+const line = ref();
 onMounted(() => {
-  const myCharts = echarts.init(line.value)
+  const myCharts = echarts.init(line.value);
   myCharts.setOption({
     title: {
-      text: '访问量'
+      text: "访问量",
     },
     // x|y轴
     xAxis: {
-      type: 'category',
+      type: "category",
       //两侧不留白
       boundaryGap: false,
       //分割线不要
       splitLine: {
-          show: false
+        show: false,
       },
-      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+      data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
       //轴线的设置
       axisLine: {
-          show: true
+        show: true,
       },
       //刻度
       axisTick: {
-          show: true
-      }
+        show: true,
+      },
     },
     yAxis: {
       splitLine: {
-          show: false
+        show: false,
       },
       //轴线的设置
       axisLine: {
-          show: true
+        show: true,
       },
       //刻度
       axisTick: {
-          show: true
-      }
+        show: true,
+      },
     },
     grid: {
       left: 40,
       top: 0,
       right: 20,
-      bottom: 20
+      bottom: 20,
     },
     //系列
     series: [
       {
-        type: 'line',
+        type: "line",
         data: [120, 1240, 66, 2299, 321, 890, 1200],
         //平滑曲线的设置
         smooth: true,
         //区域填充样式
         areaStyle: {
           color: {
-            type: 'linear',
+            type: "linear",
             x: 0,
             y: 0,
             x2: 0,
             y2: 1,
-            colorStops: [{
-                offset: 0, color: 'red' // 0% 处的颜色
-            }, {
-                offset: 1, color: 'blue' // 100% 处的颜色
-            }],
-            global: false // 缺省为 false
-          }
-        }
-      }
-    ]
-  })
-})
+            colorStops: [
+              {
+                offset: 0,
+                color: "red", // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "blue", // 100% 处的颜色
+              },
+            ],
+            global: false, // 缺省为 false
+          },
+        },
+      },
+    ],
+  });
+});
 </script>
 
 <style scoped lang="scss">
@@ -95,7 +100,7 @@ onMounted(() => {
   margin: 0 20px;
   .title {
     margin-left: 10px;
-    p{
+    p {
       color: #fff;
       font-size: 20px;
     }

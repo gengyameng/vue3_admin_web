@@ -168,6 +168,5 @@ const routes: Array<RouteRecordRaw> = [
   },
 ];
 
-
 // 路由规则导出
 export default routes;

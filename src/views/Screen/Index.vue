@@ -5,7 +5,7 @@
       <!-- 数据大屏  上下两部分-->
       <!-- 头部 -->
       <div class="top">
-        <Top/>
+        <Top />
       </div>
       <!-- 底部 -->
       <div class="bottom">
@@ -38,53 +38,49 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
-import Top from './components/Top.vue'
+import Top from "./components/Top.vue";
 // 左侧三个组件
-import Tourist from './components/Tourist.vue'
-import Sex from './components/Sex.vue'
-import Age from './components/Age.vue'
+import Tourist from "./components/Tourist.vue";
+import Sex from "./components/Sex.vue";
+import Age from "./components/Age.vue";
 // 中间两个组件
-import Map from './components/Map.vue'
-import Line from './components/Line.vue'
+import Map from "./components/Map.vue";
+import Line from "./components/Line.vue";
 // 右侧三个组件
-import Rank from './components/Rank.vue'
-import Year from './components/Year.vue'
-import Counter from './components/Counter.vue'
+import Rank from "./components/Rank.vue";
+import Year from "./components/Year.vue";
+import Counter from "./components/Counter.vue";
 
 // 获取数据大屏展示内容盒子的DOM元素
-const screen = ref()
+const screen = ref();
 
 onMounted(() => {
   console.log(getScale());
-  
+
   // screen.value.style.transform = `scale(${getScale()})`
-  screen.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`
-})
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`;
+});
 
 // 定义大屏缩放比例
-function getScale (w = 1920, h = 1080) {
-  const ww = window.innerWidth / w 
-  const wh = window.innerHeight / h
+function getScale(w = 1920, h = 1080) {
+  const ww = window.innerWidth / w;
+  const wh = window.innerHeight / h;
 
   console.log(ww, wh);
-  
 
-  return ww < wh ? ww : wh
-} 
+  return ww < wh ? ww : wh;
+}
 
 // 监听视口变化
 window.onresize = () => {
-  screen.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`
-}
-
-
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`;
+};
 </script>
 
 <style scoped lang="scss">
@@ -94,7 +90,7 @@ window.onresize = () => {
   // background-color: green;
   background: url(./images/bg.png) no-repeat;
   background-size: cover;
-  
+
   .screen {
     position: fixed;
     width: 1920px;
@@ -144,7 +140,6 @@ window.onresize = () => {
 
         .year {
           flex: 1;
-
         }
         .count {
           flex: 1;

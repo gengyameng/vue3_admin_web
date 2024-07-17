@@ -8,7 +8,6 @@
     </div>
     <div class="number">
       <span v-for="(item, index) in people" :key="index">{{ item }}</span>
-      
     </div>
     <!-- 盒子将来echarts展示图形图标的节点 -->
     <div class="charts" ref="charts">123</div>
@@ -16,33 +15,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import * as echarts from 'echarts';
-import 'echarts-liquidfill'
+import { ref, onMounted } from "vue";
+import * as echarts from "echarts";
+import "echarts-liquidfill";
 
-const people = ref('215908人')
+const people = ref("215908人");
 
 // 获取节点
-let charts = ref()
+let charts = ref();
 
 onMounted(() => {
   // 获取echarts实例
-  let myChart = echarts.init(charts.value)
+  let myChart = echarts.init(charts.value);
   // 绘制图表
   myChart.setOption({
     // 标题组件
     title: {
-      text: '水球图'
+      text: "水球图",
     },
     // X|Y轴组件
     // xAxis: {},
     // yAxis: {},
     // 系列组件：决定展示什么样的图形图标
     series: {
-      type: 'liquidFill',
+      type: "liquidFill",
       data: [0.6],
-      
-      radius: '90%',
+
+      radius: "90%",
       // color: ['#29fcff'],
       // 动画
       waveAnimation: true,
@@ -52,11 +51,11 @@ onMounted(() => {
         show: true,
         borderDistance: 10,
         itemStyle: {
-            borderColor: '#23deec',
-            borderWidth: 8,
-            shadowBlur: 20,
-            shadowColor: 'rgba(0, 0, 0, 0.25)'
-        }
+          borderColor: "#23deec",
+          borderWidth: 8,
+          shadowBlur: 20,
+          shadowColor: "rgba(0, 0, 0, 0.25)",
+        },
       },
     },
     // 布局组件
@@ -64,11 +63,10 @@ onMounted(() => {
       left: 0,
       right: 0,
       top: 0,
-      bottom: 0
-    }
-  })
-})
-
+      bottom: 0,
+    },
+  });
+});
 </script>
 
 <style scoped lang="scss">
