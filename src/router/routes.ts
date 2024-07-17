@@ -2,6 +2,10 @@
 import { RouteRecordRaw } from "vue-router";
 import Layout from "@/components/Layout/Index.vue";
 
+// 用户不同的身份角色访问路由不同，将路由划分为公共路由、异步路由、任意路由
+// 公共路由：任何身份都可以访问
+// 异步路由：根据角色是否有访问权限确定能否访问
+
 const routes: Array<RouteRecordRaw> = [
   {
     // 登录
@@ -163,6 +167,7 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
 ];
+
 
 // 路由规则导出
 export default routes;
