@@ -252,10 +252,7 @@ const updateSku = () => {
 
 // 获取全部SKu列表
 const getSkuList = async () => {
-  const { code, data } = await reqAllSkuList(
-    currentPage.value,
-    pageSize.value,
-  );
+  const { code, data } = await reqAllSkuList(currentPage.value, pageSize.value);
   if (code === 200) {
     console.log(data);
 
