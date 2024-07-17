@@ -14,7 +14,7 @@ import { constantRoutes, asyncRoutes, anyRoute } from "@/router/routes";
 
 // 引入深拷贝方法
 //@ts-expect-error
-import cloneDeep from 'lodash/cloneDeep'
+import cloneDeep from "lodash/cloneDeep";
 
 nprogress.configure({ showSpinner: false });
 
@@ -52,22 +52,29 @@ router.beforeEach(async (to: any, from: any, next: any) => {
         if (code === 200) {
           // 成功获取
           const user = data;
-          
+
           // 保存User
           userStore.setUser(user);
           // 设置用户可访问路由（异步路由）
-          const userAsyncRoutes = filterAsyncRoute(cloneDeep(asyncRoutes), data.routes)
+          const userAsyncRoutes = filterAsyncRoute(
+            cloneDeep(asyncRoutes),
+            data.routes,
+          );
           // 设置userStore的menuRoutes 用于展示路由
-          userStore.menuRoutes = [...constantRoutes, ...userAsyncRoutes, anyRoute]
+          userStore.menuRoutes = [
+            ...constantRoutes,
+            ...userAsyncRoutes,
+            anyRoute,
+          ];
           // 异步路由、任意路由还未在路由器中注册
-          ;[...userAsyncRoutes, anyRoute].forEach((route: any) => {
-            router.addRoute(route)
-          })
-          
+          [...userAsyncRoutes, anyRoute].forEach((route: any) => {
+            router.addRoute(route);
+          });
+
           // 刷新的时候是异步路由，有可能获取到用户信息，异步路由还没有加载完毕，出现
           // 空白效果
-          
-          next({...to});
+
+          next({ ...to });
         } else {
           // 获取用户信息失败
           // token失效
@@ -105,9 +112,9 @@ function filterAsyncRoute(asyncRoutes: any, routes: any) {
   return asyncRoutes.filter((item: any) => {
     if (routes.includes(item.name)) {
       if (item.children && item.children.length > 0) {
-        item.children = filterAsyncRoute(item.children, routes)
+        item.children = filterAsyncRoute(item.children, routes);
       }
-      return true
+      return true;
     }
-  })
+  });
 }

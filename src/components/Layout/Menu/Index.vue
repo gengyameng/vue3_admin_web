@@ -60,7 +60,7 @@ const router = useRouter();
 // 点击菜单时回调
 const goRoute = (vc: any) => {
   console.log(vc);
-  
+
   router.push(vc.index);
 };
 </script>

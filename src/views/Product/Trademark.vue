@@ -2,7 +2,10 @@
   <!-- 品牌管理 - 信息集中在卡片中 -->
   <el-card>
     <!-- 卡片顶部添加品牌按钮 -->
-    <el-button type="primary" icon="Plus" @click="addTrademarkHandler"
+    <el-button
+      type="primary"
+      icon="Plus"
+      @click="addTrademarkHandler"
       v-has="`btn.Trademark.add`"
       >添加品牌</el-button
     >
@@ -105,10 +108,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, nextTick } from "vue";
-import {
-  type UploadProps,
-  ElMessage,
-} from "element-plus";
+import { type UploadProps, ElMessage } from "element-plus";
 
 import {
   reqHasTrademark,

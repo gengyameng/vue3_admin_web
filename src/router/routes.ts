@@ -63,7 +63,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       hidden: true,
       icon: "QuestionFilled",
     },
-  }
+  },
 ];
 
 // 异步路由
@@ -160,7 +160,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       },
     ],
   },
-]
+];
 
 // 任意路由
 export const anyRoute: RouteRecordRaw = {
@@ -173,7 +173,7 @@ export const anyRoute: RouteRecordRaw = {
     hidden: true,
     icon: "MoreFilled",
   },
-}
+};
 
 // 路由规则导出
 // export default routes;
